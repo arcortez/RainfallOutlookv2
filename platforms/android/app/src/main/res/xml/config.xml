@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="rainout.sarai.uplb.specialproject" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <name>Rainfall Outlook</name>
+    <description>
+        Know the 6-month Forecast of Rainfall
+    </description>
+    <author email="anarrativecloud@gmail.com" href="https://twitter.com/anarrativecloud">
+        Adrienne Elise R Cortez
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
+    <icon density="ldpi" src="icon.png" />
+    <icon density="mdpi" src="icon.png" />
+    <icon density="hdpi" src="icon.png" />
+    <icon density="xhdpi" src="icon.png" />
+    <icon density="xxhdpi" src="icon.png" />
+    <icon density="xxxhdpi" src="icon.png" />
+    <preference name="loglevel" value="DEBUG" />
+</widget>
