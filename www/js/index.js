@@ -110,16 +110,20 @@ function onDeviceReady(){
     document.getElementById('page-header').style.display = 'block';
     document.getElementById('footer').style.display = 'block';
     openPage('home');
-    document.addEventListener("backbutton", onBackKeyDown, false);
+    // document.addEventListener("backbutton", onBackKeyDown, false);
 }
 
-function onBackKeyDown(e) {
-    e.preventDefault();
-    if(currentPage != 'home'){
-        openPage('home');
-    }
-}
-
+// function onBackKeyDown(e) {
+//     e.preventDefault();
+//     if(currentPage != 'home'){
+//         openPage('home');
+//     }
+// }
+navigator.Backbutton.goBack(function() {
+  console.log('success')
+}, function() {
+  console.log('fail')
+});
 
 
 function setM(val){
