@@ -15,6 +15,9 @@
     },
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "rainout.sarai.uplb.specialproject"
+    },
+    "cordova-plugin-backbutton": {
+      "PACKAGE_NAME": "rainout.sarai.uplb.specialproject"
     }
   },
   "dependent_plugins": {}
