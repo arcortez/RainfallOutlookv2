@@ -39,60 +39,31 @@
 
     <div id="page-header" class="pad-big pad-small">
         <p class="bottomless">
-            <a href="#" id="menuOpen" class="menutoggler" onclick="openNav()"><i class="material-icons large-2">menu</i></a>
-            <a href="#" id="menuClose" class="menutoggler" onclick="closeNav()"><i class="material-icons large-2">menu</i></a>
-            
             <img src="img/dost-pcaarrd-uplb.png" class="iconics">
-            <span id="headlogo">
-                <img src="img/header_green.png" class="iconics none-on-small disp-on-big">
-            </span>
-
+            <img src="img/header_green.png" class="iconics">
         </p>
     </div>
 
 
     <div id="mySidenav" class="sidenav">
-        <ul class="bottomless">
-            <li class="center">
-                <p><img src="img/header_green.png" class="sizing"></p>
-            </li>
-            <li class="navitem" href="#" onclick="openPage('home'); closeNav()">
-                <i class="material-icons font24 left mtop">home</i>
-                <span class="font20">Home</span>
-            </li>
-            <li class="navitem" href="#" onclick="openPage('data'); closeNav()">
-                <i class="material-icons font24 left mtop">view_quilt</i>
-                <span class="font20">Data Tables</span>
-            </li>
-            <li class="navitem" href="#" onclick="openPage('downloads'); closeNav()">
-                <i class="material-icons font24 left mtop">vertical_align_bottom</i>
-                <span class="font20">Downloads</span>
-            </li>
-            <li class="navitem" href="#" onclick="openPage('settings'); closeNav()">
-                <i class="material-icons font24 left mtop">settings</i>
-                <span class="font20">Settings & Updates</span>
-            </li>
-            <li id="tiptag" class="navitem" href="#" onclick="openTip()"> 
-                <i class="material-icons font24 left mtop">feedback</i>
-                <span class="font20">AGRITIP</span>
-            </li>
-            <span id="agritips" href="#" onclick="closeTip()">
-                <hr>
-                <li class="navitem" href="#" onclick="">
-                    <i class="material-icons font24 left mtop">feedback</i>
-                    <span class="font20">AGRITIP</span>
-                    <i class="material-icons font24 right mtop">close</i>
-                </li>
-                <li class="navitem font14 thickpads" href="#" onclick="">
-                    <p>If rainfall is <strong>more than 100mm</strong>, planting corn is advisable. If rainfall is <strong>more than 200mm</strong>, planting corn and rice is advisable.</p>
-                </li>
-            </span>
-            
-        </ul>
-        <br>
-        <div onclick="closeNav()" class="shutterclose">
-            <p class="bottomless center"><i class="material-icons">keyboard_capslock</i> </p>
-        </div>
+        <div class="container">
+            <div class="row">
+                <div id="hometag" class="col center bottomtags" onclick="openPage('home')">
+                    <p>
+                        <i class="material-icons font28 mtop">home</i>
+                        <span class="font10 navtag1">Home</span>
+                    </p>
+                </div>
+                <div id="tabletag" class="col center bottomtags" onclick="openPage('data')">
+                    <i class="material-icons font28 mtop">view_quilt</i>
+                    <span class="font10 navtag2">Tables</span>
+                </div>
+                <div id="abouttag" class="col center bottomtags" onclick="openPage('footer')">
+                    <i class="material-icons font24 mtop">help_outline</i>
+                    <span class="font10 navtag3">About</span>
+                </div>
+            </div>
+        </div>  
     </div>
 
 
@@ -155,7 +126,7 @@
             </div>
 
 
-            <div id="legendarea">
+            <div id="legendarea" class="bottom-border">
                 Legend:
                 <p>
                     <img src="img/four.png" class="siglegende" ng-if="currentScheme.id==1">
@@ -164,6 +135,20 @@
             </div>
             
             <div id="maps">
+                <span id="tiptag" href="#" onclick="openTip()"> 
+                    <i class="material-icons font24 left mtop">feedback</i>
+                    <span class="font20">AGRITIP</span>
+                </span>
+                <span id="agritips" href="#" onclick="closeTip()">
+                    <span href="#" onclick="">
+                        <i class="material-icons font24 left mtop">feedback</i>
+                        <span class="font20">AGRITIP</span>
+                        <i class="material-icons font24 right mtop">close</i>
+                    </span>
+                    <div class="font14 thickpads" href="#" onclick="">
+                        <p class="bottomless">If rainfall is <strong>more than 100mm</strong>, planting corn is advisable. If rainfall is <strong>more than 200mm</strong>, planting corn and rice is advisable.</p>
+                    </div>
+                </span>
                 <div class="upper-border">
                     <p class="font20 center bottomless">
                         Six Month Nationwide Rainfall Outlook 
@@ -176,7 +161,6 @@
                 <div class="map"> <div class="map-holder"></div> </div>
                 <div class="map"> <div class="map-holder"></div> </div>
             </div>
-
         </div>  
 
         <div id="data" class="page-content">
@@ -211,8 +195,10 @@
                                 <td class="tabledata" ng-repeat="element in each.array" style="background-color: {{element.color}}; color: {{element.textcolor}};">{{element.value}}</td>
                             </tr>
                         </tbody>
+                        <div id="bottompadder"><br></div>        
                     </table>
                 </div>
+                <div id="bottompadder"><br></div>
             </div>
         </div>
         <div id="downloads" class="page-content">
@@ -259,36 +245,39 @@
             </span>
             
             <hr>
+
         </div>
+
+        <div id="footer" class="page-content">
+            <br>
+            <div class="thickpads">
+                <h4>Connect With Us</h4>
+                <p class="font14">
+                    <i class="material-icons mtop">email</i> project.sarai.uplb@gmail.com
+                </p>
+            </div>
+            <div class="thickpads">
+                <h4>About SARAi</h4>
+                <p class="font14">
+                    Project SARAi aims to develop a national crop forecasting and monitoring system for first six priority crops: rice, corn, banana, coconut, coffee, cacao. This project is funded by DOST-PCAARRD.
+                </p>
+                <p>
+                    <img src="img/dost-pcaarrd-uplb.png" class="big-pic">
+                </p>
+                <p><i class="material-icons mtop">copyright</i> Copyright 2017 - Project SARAi</p>
+            </div>
+
+        </div>
+
     </div>
 
-
-
-    <div id="footer">
-        <br>
-        <div class="thickpads">
-            <h4>Connect With Us</h4>
-            <p class="font14">
-                <i class="material-icons mtop">email</i> project.sarai.uplb@gmail.com
-            </p>
-        </div>
-        <div class="thickpads">
-            <h4>About SARAi</h4>
-            <p class="font14">
-                Project SARAi aims to develop a national crop forecasting and monitoring system for first six priority crops: rice, corn, banana, coconut, coffee, cacao. This project is funded by DOST-PCAARRD.
-            </p>
-            <p>
-                <img src="img/dost-pcaarrd-uplb.png" class="big-pic">
-            </p>
-            <p><i class="material-icons mtop">copyright</i> Copyright 2017 - Project SARAi</p>
-        </div>
-    </div>
 
     <!--must be at the end or else nothing will work-->
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/cordova-1.5.0.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/mapper.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>

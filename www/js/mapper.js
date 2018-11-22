@@ -16,22 +16,21 @@ function getColorVal(num, color_schema){
 		else if(num > 500) return "rgb(68,114,198)";
 		else console.log('invalid input >> '+num);
 	}else if(color_schema == "BLUE"){
-
 		if(num < 100) return "rgb(225,225,225)";
 		else if(num >= 100 && num <250) return "rgb(116,220,253)";
 		else if(num >=250 && num <=500) return "rgb(9,87,235)";
-		else if(num > 500) return "rgb	(30,59,180)";
+		else if(num > 500) return "rgb(30,59,180)";
 		else console.log('invalid input >> '+num);
 
-		/* //6 shades of blue 
-		if(num < 50) return "rgb(225,225,225)";
-		else if(num >= 50 && num < 100) return "rgb(185,231,253)";
-		else if(num >= 100 && num < 200) return "rgb(16,183, 252)";
-		else if(num >= 200 && num < 300) return "rgb(10,109,254)";
-		else if(num >= 300 && num < 400) return "rgb(5,76,156)";
-		else if(num >= 400 && num <= 500) return "rgb(0,38,118)";
-		else return "rgb(0,10,10)";
-		*/ 
+		// //6 shades of blue 
+		// if(num < 50) return "rgb(225,225,225)";
+		// else if(num >= 50 && num < 100) return "rgb(185,231,253)";
+		// else if(num >= 100 && num < 200) return "rgb(16,183, 252)";
+		// else if(num >= 200 && num < 300) return "rgb(10,109,254)";
+		// else if(num >= 300 && num < 400) return "rgb(5,76,156)";
+		// else if(num >= 400 && num <= 500) return "rgb(0,38,118)";
+		// else return "rgb(0,10,10)";
+		 
 	}
 }
 
@@ -281,7 +280,7 @@ function drawMaps (geojson){
 			if(d.properties.ID_1 == 82){
 				t++;
 			}
-			console.log("PH"+t+"-"+d.properties.ID_1);
+			// console.log("PH"+t+"-"+d.properties.ID_1);
 			return "PH"+t+"-"+d.properties.ID_1			
 		})
 		.on("click", function(d){

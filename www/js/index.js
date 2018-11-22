@@ -1,18 +1,12 @@
-var currentPage = 'home';
+var currentPage = '';
 
 function openNav() {
     document.getElementById("mySidenav").style.display = "block";
-    document.getElementById("menuOpen").style.display = "none";
-    document.getElementById("menuClose").style.display = "block";
-    document.getElementById("headlogo").style.visibility = "hidden";
     document.getElementById('schemenote').innerHTML = "";
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.display = "none";
-    document.getElementById("menuOpen").style.display = "block";
-    document.getElementById("menuClose").style.display = "none";
-    document.getElementById("headlogo").style.visibility = "visible";
     closeTip();
 }
 
@@ -27,29 +21,60 @@ function closeTip(){
 }
 
 function openPage(string){
-    document.getElementById("scheme").style.display = "none";
-    document.getElementById("home").style.display = "none";
-    document.getElementById("data").style.display = "none";
-    document.getElementById("downloads").style.display = "none";
-    document.getElementById("settings").style.display = "none";
+    if(currentPage != string){
+        document.getElementById("scheme").style.display = "none";
+        document.getElementById("home").style.display = "none";
+        document.getElementById("data").style.display = "none";
+        document.getElementById("footer").style.display = "none";
+        document.getElementById("downloads").style.display = "none";
+        document.getElementById("settings").style.display = "none";
+        document.getElementById("main").style.backgroundColor = "white";
+        document.getElementById("main").style.color = "black";
+        document.getElementById("hometag").style.color = "white";
+        document.getElementById("tabletag").style.color = "white";
+        document.getElementById("abouttag").style.color = "white";
+        document.getElementById("hometag").style.backgroundColor = "#444440";
+        document.getElementById("tabletag").style.backgroundColor = "#444440";
+        document.getElementById("abouttag").style.backgroundColor = "#444440";
+        document.getElementById("hometag").style.borderBottom = "0px";
+        document.getElementById("tabletag").style.borderBottom = "0px";
+        document.getElementById("abouttag").style.borderBottom = "0px";
 
-    if(string =='home'){
-        document.getElementById("home").style.display = "block"; 
-        currentPage = 'home';
-    }else if(string =='maps'){
-        document.getElementById("maps").style.display = "block"; 
-        currentPage = 'maps';
-    }else if(string =='data'){
-        document.getElementById("data").style.display = "block";
-        currentPage = 'data';
-    }else if(string =='downloads'){
-        document.getElementById("downloads").style.display = "block";
-        currentPage = 'downloads';
-    }else if(string =='settings'){
-        document.getElementById("settings").style.display = "block";
-        currentPage = 'settings';
+        if(string =='home'){
+            document.getElementById("home").style.display = "block"; 
+            currentPage = 'home';
+
+            document.getElementById("hometag").style.color = "#28a745";
+            document.getElementById("hometag").style.backgroundColor = "white";
+            document.getElementById("hometag").style.borderBottom = "3px solid #28a745";
+        }else if(string =='maps'){
+            document.getElementById("maps").style.display = "block"; 
+            currentPage = 'maps';
+        }else if(string =='data'){
+            document.getElementById("data").style.display = "block";
+            currentPage = 'data';
+
+
+            document.getElementById("tabletag").style.color = "#007bff";
+            document.getElementById("tabletag").style.backgroundColor = "white";
+            document.getElementById("tabletag").style.borderBottom = "3px solid #007bff";
+        }else if(string =='downloads'){
+            document.getElementById("downloads").style.display = "block";
+            currentPage = 'downloads';
+        }else if(string =='settings'){
+            document.getElementById("settings").style.display = "block";
+            currentPage = 'settings';
+        }else if(string == 'footer'){
+            document.getElementById("footer").style.display = "block";
+            document.getElementById("main").style.backgroundColor = "#444440";
+            document.getElementById("main").style.color = "white";
+            document.getElementById("abouttag").style.color = "#28a745";
+            currentPage = 'footer';
+        }
+    }else{
+        //do nothing
     }
-    closeNav();
+
 }
 
 document.getElementById('displays').provinceSelect.onchange = changeP;
@@ -76,35 +101,22 @@ function changeM(){
     })
 }
 
-
-function selectScheme(){
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady(){
     document.getElementById('notices').innerHTML = "Loading... Please Wait. This might take a bit."
     d3.csv("data/Forecast.csv", parseData);
     d3.json("data/Provinces.json", drawMaps);
-    document.getElementById('menuOpen').style.display = 'block'; 
     document.getElementById('main').style.display = 'block';
     document.getElementById('page-header').style.display = 'block';
     document.getElementById('footer').style.display = 'block';
     openPage('home');
-    document.addEventListener("deviceready", onDeviceReady, false);
-}
-
-function onDeviceReady() {
-    
+    document.addEventListener("backbutton", onBackKeyDown, false);
 }
 
 function onBackKeyDown(e) {
     e.preventDefault();
-    closeNav();
     if(currentPage != 'home'){
-        openPage('home')
-    }else{
-        var conf = confirm("Would you like to exit the app?");
-        if(conf == true){
-            App.exitApp();
-        }else{
-            //do nothing
-        }
+        openPage('home');
     }
 }
 

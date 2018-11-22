@@ -9,6 +9,12 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "rainout.sarai.uplb.specialproject"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "rainout.sarai.uplb.specialproject"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "rainout.sarai.uplb.specialproject"
     }
   },
   "dependent_plugins": {}
