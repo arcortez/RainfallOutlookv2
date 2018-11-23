@@ -110,21 +110,13 @@ function onDeviceReady(){
     document.getElementById('page-header').style.display = 'block';
     document.getElementById('footer').style.display = 'block';
     openPage('home');
-    // document.addEventListener("backbutton", onBackKeyDown, false);
+    document.addEventListener("backbutton", function (e) {
+        e.preventDefault();
+        alert("fuck this shit")
+    }, false );
 }
 
-// function onBackKeyDown(e) {
-//     e.preventDefault();
-//     if(currentPage != 'home'){
-//         openPage('home');
-//     }
-// }
-navigator.Backbutton.goBack(function() {
-  console.log('success')
-}, function() {
-  console.log('fail')
-});
-
+navigator.app.overrideBackbutton(true);
 
 function setM(val){
     document.getElementById('displays').muniSelect.value = val.id;
