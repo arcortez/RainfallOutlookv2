@@ -1,4 +1,5 @@
 var currentPage = '';
+document.addEventListener("deviceready", onDeviceReady, false);
 
 function openNav() {
     document.getElementById("mySidenav").style.display = "block";
@@ -101,7 +102,6 @@ function changeM(){
     })
 }
 
-document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady(){
     document.getElementById('notices').innerHTML = "Loading... Please Wait. This might take a bit."
     d3.csv("data/Forecast.csv", parseData);
@@ -110,13 +110,9 @@ function onDeviceReady(){
     document.getElementById('page-header').style.display = 'block';
     document.getElementById('footer').style.display = 'block';
     openPage('home');
-    document.addEventListener("backbutton", function (e) {
-        e.preventDefault();
-        alert("fuck this shit")
-    }, false );
+    
 }
 
-navigator.app.overrideBackbutton(true);
 
 function setM(val){
     document.getElementById('displays').muniSelect.value = val.id;
