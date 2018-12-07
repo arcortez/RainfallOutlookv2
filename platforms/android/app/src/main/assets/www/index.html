@@ -156,7 +156,7 @@
                         <div class="loader right"></div>
                         <hr>
                     </div>
-                    <p class="font20 center bottomless">
+                    <p class="font20 center bottomless" ng-if="loadingbar">
                         Six Month Nationwide Rainfall Outlook 
                     </p>
                 </div>
@@ -182,7 +182,7 @@
             <hr>
             <p id="provinceheader" class="font20 bottomless">
                 <span ng-if="showProvince">PROVINCES</span>
-                <span ng-if="showMunicipality"><a href="#" ng-click="loadProvinceData()">PROVINCES</a> > {{municipalData.province}}</span>
+                <span ng-if="showMunicipality"><button class="btn btn-light" ng-click="loadProvinceData()"><i class="material-icons">back</i> PROVINCES</button> > {{municipalData.province}}</span>
             </p> 
             <div id="table-local">
                 <table> 

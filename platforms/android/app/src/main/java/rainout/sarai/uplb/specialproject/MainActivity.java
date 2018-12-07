@@ -21,9 +21,29 @@ package rainout.sarai.uplb.specialproject;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
+import android.os.Bundle;
+import android.widget.Toast;
 
 public class MainActivity extends CordovaActivity
 {
+    
+    private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
+    private long mBackPressed;
+
+    @Override
+    public void onBackPressed()
+    {
+        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) 
+        { 
+            super.onBackPressed(); 
+            return;
+        }
+        else { Toast.makeText(getBaseContext(), "Tap back button twice to exit", Toast.LENGTH_SHORT).show(); }
+
+        mBackPressed = System.currentTimeMillis();
+    }
+
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
