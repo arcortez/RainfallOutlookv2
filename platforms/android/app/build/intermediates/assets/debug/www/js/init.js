@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
+var apper = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
@@ -28,6 +28,11 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        
+        document.addEventListener("backbutton", function (e) {
+            e.preventDefault();
+            alert("fuck this shit")
+        }, false );
     },
 
     // Update DOM on a Received Event
@@ -43,4 +48,4 @@ var app = {
     }
 };
 
-app.initialize();
+apper.initialize();

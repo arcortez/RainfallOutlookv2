@@ -19,7 +19,7 @@ app.controller('Controller', ['$scope', function($scope) {
 	$scope.notif = "Loading Data. Please Wait.";
 
 	$scope.displayarr = [];
-
+	var trigger = false;
 
 	$scope.loadProvinceData = function(){
 		$scope.currentProvince = "allProvinces"
@@ -29,7 +29,7 @@ app.controller('Controller', ['$scope', function($scope) {
 		$scope.months = monthspan;
 		console.log($scope.provincedata);
 		console.log($scope.months);
-		$scope.municipalData = $scope.provincedata[39];
+		$scope.municipalData = $scope.provincedata[0];
 		$scope.notif = "";
 		$scope.currentScheme = colorarr;
 		console.log($scope.currentScheme);
@@ -48,7 +48,13 @@ app.controller('Controller', ['$scope', function($scope) {
 		console.log(newarr);
 		$scope.displayarr = newarr;
 		$scope.loadingbar = false;
+
+		// document.getElementById('provinceSelect').selectedIndex = 39;
+		// document.getElementById('muniSelect').selectedIndex = 12;
+		// $scope.changeCurrentProvince('39');
+		// $scope.changeDisplayArr(12);
 	}
+
 
 	$scope.REloadProvinceData = function(){
 		svg = d3.selectAll(".map-holder")
@@ -83,6 +89,7 @@ app.controller('Controller', ['$scope', function($scope) {
 		console.log(newarr);
 		$scope.displayarr = newarr;
 		$scope.loadingbar = false;
+
 	}
 
 	$scope.changenotif = function(string){
@@ -190,7 +197,7 @@ app.controller('Controller', ['$scope', function($scope) {
 
 	$scope.changeLBAR = function(bool){
 		$scope.loadingbar = bool;
-		$scope.notif = "Reloading Data. Please Wait.";
+		$scope.notif = "Loading Data. Please Wait.";
 	}
 }]);
 

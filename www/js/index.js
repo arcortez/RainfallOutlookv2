@@ -125,8 +125,13 @@ function onBackKeyDown(){
 }
 
 function onMapReady(){
+    var loaded = angular.element(document.getElementById("fullscale")).scope();
+    loaded.$apply(function(){
+        loaded.changeLBAR(true);
+    })
+
+    document.getElementById('maploader').innerHTML= ""; 
     d3.json("data/Provinces.json", drawMaps);
-    document.getElementById('maploaderx').innerHTML= "Loading... Please Wait.";
 }
 
 

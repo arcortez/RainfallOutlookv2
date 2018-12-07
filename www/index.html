@@ -73,12 +73,6 @@
 
     <div id="main" class="mainpad">
         <div id="home" class="page-content">
-            <div class="center font20" ng-if="loadingbar">
-                <span class="loading">{{notif}}</span>
-                <div class="loader left"></div>
-                <div class="loader right"></div>
-                <hr>
-            </div>
             <h4 class="center">Rainfall Outlook</h4>
             <p class="font12 center bottomless">
                 <strong>Know the 6-month rainfall forecast of municipalities with arable and cultivated land based on land cover classification of DA-BAR.</strong>
@@ -156,6 +150,12 @@
                     <p class="center" id="maploader">
                         <button onclick="onMapReady()" id="maploaderx" class="btn btn-success">Load Maps</button>
                     </p>
+                    <div class="center font20" ng-if="loadingbar">
+                        <span class="loading">{{notif}}</span>
+                        <div class="loader left"></div>
+                        <div class="loader right"></div>
+                        <hr>
+                    </div>
                     <p class="font20 center bottomless">
                         Six Month Nationwide Rainfall Outlook 
                     </p>
@@ -169,7 +169,11 @@
                     <div class="map"> <div class="map-holder"></div> </div>
                     <div><br></div>
                 </div>
-
+                <div>
+                    <br>
+                    <br>
+                    <p><i class="material-icons mtop light-grey-text">copyright</i> Copyright 2018 - Project SARAi</p>
+                </div>
             </div>
         </div>  
 
@@ -207,7 +211,9 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="bottompadder"><br></div>
+                <p><i class="material-icons mtop light-grey-text">copyright</i> Copyright 2018 - Project SARAi</p>
+                <br>
+                <br>
             </div>
         </div>
         <div id="downloads" class="page-content">
@@ -273,7 +279,7 @@
                 <p>
                     <img src="img/dost-pcaarrd-uplb.png" class="big-pic">
                 </p>
-                <p><i class="material-icons mtop">copyright</i> Copyright 2017 - Project SARAi</p>
+                <p><i class="material-icons mtop">copyright</i> Copyright 2018 - Project SARAi</p>
             </div>
 
         </div>

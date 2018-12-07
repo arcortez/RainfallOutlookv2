@@ -142,6 +142,9 @@ input:checked + .slider:before {
 
 .white-text{color:white;}
 .red-text{color: red;}
+.light-grey-text{
+  color: #d1d1d1;
+}
 
 .link-text{color: rgb(0,176,240);}
 .iconics{

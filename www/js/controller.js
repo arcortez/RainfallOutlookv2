@@ -29,7 +29,7 @@ app.controller('Controller', ['$scope', function($scope) {
 		$scope.months = monthspan;
 		console.log($scope.provincedata);
 		console.log($scope.months);
-		$scope.municipalData = $scope.provincedata[39];
+		$scope.municipalData = $scope.provincedata[0];
 		$scope.notif = "";
 		$scope.currentScheme = colorarr;
 		console.log($scope.currentScheme);
@@ -197,7 +197,7 @@ app.controller('Controller', ['$scope', function($scope) {
 
 	$scope.changeLBAR = function(bool){
 		$scope.loadingbar = bool;
-		$scope.notif = "Reloading Data. Please Wait.";
+		$scope.notif = "Loading Data. Please Wait.";
 	}
 }]);
 

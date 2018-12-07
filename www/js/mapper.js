@@ -46,12 +46,20 @@ var svg = d3.selectAll(".map-holder")
   
 var width = $(".map-holder").width();
 var height = $(".map-holder").height();
-var scale_value = 500;
+
+var scale_value = 700;
 
 var projection = d3
 	.geoEquirectangular()
-	.center([170, -4]) //the lat-long degrees of the philippines
+	.center([155, 1]) //the lat-long degrees of the philippines
 	.scale(scale_value);
+
+// var scale_value = 500;
+
+// var projection = d3
+// 	.geoEquirectangular()
+// 	.center([170, -4]) //the lat-long degrees of the philippines
+// 	.scale(scale_value);
 
 var path = d3
   .geoPath()
@@ -292,5 +300,9 @@ function drawMaps (geojson){
 
 		// });
 	
-	document.getElementById('maploader').innerHTML= "";	
+	
+	var loaded = angular.element(document.getElementById("fullscale")).scope();
+    loaded.$apply(function(){
+        loaded.changeLBAR(false);
+    })
 }

@@ -6,6 +6,9 @@
     <meta http-equiv="content-type" content="text/html" charset="UTF-8"/>
     <title>Rainfall Outlook</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
+
+    <script type="text/javascript" src="js/cordova-1.5.0.js"></script>
+
 </head>
 
 <body onload="onDeviceReady()">
@@ -39,6 +42,7 @@
 
     <div id="page-header" class="pad-big pad-small">
         <p class="bottomless">
+            <img id="backarrow" onclick="openPage('home')" src="img/backarrow.png" class="iconics">
             <img src="img/dost-pcaarrd-uplb.png" class="iconics">
             <img src="img/header_green.png" class="iconics">
         </p>
@@ -67,14 +71,8 @@
     </div>
 
 
-    <div id="main">
+    <div id="main" class="mainpad">
         <div id="home" class="page-content">
-            <div class="center font20" ng-if="loadingbar">
-                <span class="loading">{{notif}}</span>
-                <div class="loader left"></div>
-                <div class="loader right"></div>
-                <hr>
-            </div>
             <h4 class="center">Rainfall Outlook</h4>
             <p class="font12 center bottomless">
                 <strong>Know the 6-month rainfall forecast of municipalities with arable and cultivated land based on land cover classification of DA-BAR.</strong>
@@ -87,7 +85,7 @@
                 <form id="displays">
                     <div class="container">
                         <p class="font14 center bottomless"><strong>PROVINCE</strong></p>
-                        <select name="provinceSelect" class="btn btn-light">
+                        <select name="provinceSelect" id="provinceSelect" class="btn btn-light">
                             <option ng-repeat="each in provincedata" value="{{each.id}}">{{each.province}}</option>
                         </select>
                         <!-- <a href="#" ng-if="searchP == false" ng-click="searchPtoggle()"><i class="material-icons link">search</i></a>
@@ -100,7 +98,7 @@
                         <br ng-if="searchP == false"><!-- <br ng-if="searchP == false"> -->
                         
                         <p class="font14 center bottomless"><strong>MUNICIPALITY</strong></p>
-                        <select name="muniSelect" class="btn btn-light">
+                        <select name="muniSelect" id="muniSelect" class="btn btn-light">
                             <option value="all"> -- All -- </option>
                             <option ng-repeat="each in municipalData.municipalities" value="{{each.id}}">{{each.Municipality}}</option>
                         </select>
@@ -116,8 +114,8 @@
 
             <div>
                 <!-- <span>{{municipalData.province}}</span> -->
-                <div class="container center">
-                    <div class="displayer" ng-repeat="each in displayarr" style="background-color: {{each.color}}; color: {{each.textcolor}}">
+                <div class="container center sienna">
+                    <div class="displayer left" ng-repeat="each in displayarr" style="background-color: {{each.color}}; color: {{each.textcolor}}">
                         <p class="bottomless display-header"><strong>{{months[each.id]}}</strong></p>
                         {{each.value}} mm        
                     </div>
@@ -127,9 +125,7 @@
 
 
             <div id="legendarea" class="bottom-border">
-                Legend:
                 <p>
-                    <img src="img/four.png" class="siglegende" ng-if="currentScheme.id==1">
                     <img src="img/blue.png" class="siglegende" ng-if="currentScheme.id==0">
                 </p>
             </div>
@@ -150,16 +146,34 @@
                     </div>
                 </span>
                 <div class="upper-border">
+                    
+                    <p class="center" id="maploader">
+                        <button onclick="onMapReady()" id="maploaderx" class="btn btn-success">Load Maps</button>
+                    </p>
+                    <div class="center font20" ng-if="loadingbar">
+                        <span class="loading">{{notif}}</span>
+                        <div class="loader left"></div>
+                        <div class="loader right"></div>
+                        <hr>
+                    </div>
                     <p class="font20 center bottomless">
                         Six Month Nationwide Rainfall Outlook 
                     </p>
                 </div>
-                <div class="map"> <div class="map-holder"></div> </div>
-                <div class="map"> <div class="map-holder"></div> </div>
-                <div class="map"> <div class="map-holder"></div> </div>
-                <div class="map"> <div class="map-holder"></div> </div>
-                <div class="map"> <div class="map-holder"></div> </div>
-                <div class="map"> <div class="map-holder"></div> </div>
+                <div id="allmaps">
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div><br></div>
+                </div>
+                <div>
+                    <br>
+                    <br>
+                    <p><i class="material-icons mtop light-grey-text">copyright</i> Copyright 2018 - Project SARAi</p>
+                </div>
             </div>
         </div>  
 
@@ -195,10 +209,11 @@
                                 <td class="tabledata" ng-repeat="element in each.array" style="background-color: {{element.color}}; color: {{element.textcolor}};">{{element.value}}</td>
                             </tr>
                         </tbody>
-                        <div id="bottompadder"><br></div>        
                     </table>
                 </div>
-                <div id="bottompadder"><br></div>
+                <p><i class="material-icons mtop light-grey-text">copyright</i> Copyright 2018 - Project SARAi</p>
+                <br>
+                <br>
             </div>
         </div>
         <div id="downloads" class="page-content">
@@ -264,7 +279,7 @@
                 <p>
                     <img src="img/dost-pcaarrd-uplb.png" class="big-pic">
                 </p>
-                <p><i class="material-icons mtop">copyright</i> Copyright 2017 - Project SARAi</p>
+                <p><i class="material-icons mtop">copyright</i> Copyright 2018 - Project SARAi</p>
             </div>
 
         </div>
@@ -276,10 +291,8 @@
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/angular.min.js"></script>
-    <script type="text/javascript" src="js/cordova-1.5.0.js"></script>
-    <script type="text/javascript" src="js/init.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/mapper.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
 
 </body>
