@@ -16,10 +16,10 @@ function getColorVal(num, color_schema){
 		else if(num > 500) return "rgb(68,114,198)";
 		else console.log('invalid input >> '+num);
 	}else if(color_schema == "BLUE"){
-		if(num < 100) return "rgb(225,225,225)";
-		else if(num >= 100 && num <250) return "rgb(116,220,253)";
-		else if(num >=250 && num <=500) return "rgb(9,87,235)";
-		else if(num > 500) return "rgb(30,59,180)";
+		if(num < 100) return "#eceff1";
+		else if(num >= 100 && num <250) return "#b3e5fc";
+		else if(num >=250 && num <=500) return "#039be5";
+		else if(num > 500) return "#01579b";
 		else console.log('invalid input >> '+num);
 
 		// //6 shades of blue 
@@ -228,6 +228,10 @@ function parseData(data){
 	}
 	// console.log(allMunicipalities)
 
+    var loaded = angular.element(document.getElementById("fullscale")).scope();
+    loaded.$apply(function(){
+        loaded.loadProvinceData();
+    })
 }
 
 
@@ -275,21 +279,18 @@ function drawMaps (geojson){
 				m++;
 			}
 			return colorstring;
-		})
-		.attr("id", function(d){
-			if(d.properties.ID_1 == 82){
-				t++;
-			}
-			// console.log("PH"+t+"-"+d.properties.ID_1);
-			return "PH"+t+"-"+d.properties.ID_1			
-		})
-		.on("click", function(d){
-			console.log(d.properties.ID_1+" "+d.properties.NAME_1)
-
 		});
+		// .attr("id", function(d){
+		// 	if(d.properties.ID_1 == 82){
+		// 		t++;
+		// 	}
+		// 	// console.log("PH"+t+"-"+d.properties.ID_1);
+		// 	return "PH"+t+"-"+d.properties.ID_1			
+		// })
+		// .on("click", function(d){
+		// 	console.log(d.properties.ID_1+" "+d.properties.NAME_1)
+
+		// });
 	
-	var loaded = angular.element(document.getElementById("fullscale")).scope();
-	loaded.$apply(function(){
-		loaded.loadProvinceData();
-	})
+	document.getElementById('maploader').innerHTML= "";	
 }

@@ -19,7 +19,7 @@ app.controller('Controller', ['$scope', function($scope) {
 	$scope.notif = "Loading Data. Please Wait.";
 
 	$scope.displayarr = [];
-
+	var trigger = false;
 
 	$scope.loadProvinceData = function(){
 		$scope.currentProvince = "allProvinces"
@@ -48,7 +48,13 @@ app.controller('Controller', ['$scope', function($scope) {
 		console.log(newarr);
 		$scope.displayarr = newarr;
 		$scope.loadingbar = false;
+
+		// document.getElementById('provinceSelect').selectedIndex = 39;
+		// document.getElementById('muniSelect').selectedIndex = 12;
+		// $scope.changeCurrentProvince('39');
+		// $scope.changeDisplayArr(12);
 	}
+
 
 	$scope.REloadProvinceData = function(){
 		svg = d3.selectAll(".map-holder")
@@ -83,6 +89,7 @@ app.controller('Controller', ['$scope', function($scope) {
 		console.log(newarr);
 		$scope.displayarr = newarr;
 		$scope.loadingbar = false;
+
 	}
 
 	$scope.changenotif = function(string){

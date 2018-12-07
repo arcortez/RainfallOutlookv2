@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body onload="onDeviceReady()">
     
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -42,6 +42,7 @@
 
     <div id="page-header" class="pad-big pad-small">
         <p class="bottomless">
+            <img id="backarrow" onclick="openPage('home')" src="img/backarrow.png" class="iconics">
             <img src="img/dost-pcaarrd-uplb.png" class="iconics">
             <img src="img/header_green.png" class="iconics">
         </p>
@@ -70,7 +71,7 @@
     </div>
 
 
-    <div id="main">
+    <div id="main" class="mainpad">
         <div id="home" class="page-content">
             <div class="center font20" ng-if="loadingbar">
                 <span class="loading">{{notif}}</span>
@@ -90,7 +91,7 @@
                 <form id="displays">
                     <div class="container">
                         <p class="font14 center bottomless"><strong>PROVINCE</strong></p>
-                        <select name="provinceSelect" class="btn btn-light">
+                        <select name="provinceSelect" id="provinceSelect" class="btn btn-light">
                             <option ng-repeat="each in provincedata" value="{{each.id}}">{{each.province}}</option>
                         </select>
                         <!-- <a href="#" ng-if="searchP == false" ng-click="searchPtoggle()"><i class="material-icons link">search</i></a>
@@ -103,7 +104,7 @@
                         <br ng-if="searchP == false"><!-- <br ng-if="searchP == false"> -->
                         
                         <p class="font14 center bottomless"><strong>MUNICIPALITY</strong></p>
-                        <select name="muniSelect" class="btn btn-light">
+                        <select name="muniSelect" id="muniSelect" class="btn btn-light">
                             <option value="all"> -- All -- </option>
                             <option ng-repeat="each in municipalData.municipalities" value="{{each.id}}">{{each.Municipality}}</option>
                         </select>
@@ -119,8 +120,8 @@
 
             <div>
                 <!-- <span>{{municipalData.province}}</span> -->
-                <div class="container center">
-                    <div class="displayer" ng-repeat="each in displayarr" style="background-color: {{each.color}}; color: {{each.textcolor}}">
+                <div class="container center sienna">
+                    <div class="displayer left" ng-repeat="each in displayarr" style="background-color: {{each.color}}; color: {{each.textcolor}}">
                         <p class="bottomless display-header"><strong>{{months[each.id]}}</strong></p>
                         {{each.value}} mm        
                     </div>
@@ -130,9 +131,7 @@
 
 
             <div id="legendarea" class="bottom-border">
-                Legend:
                 <p>
-                    <img src="img/four.png" class="siglegende" ng-if="currentScheme.id==1">
                     <img src="img/blue.png" class="siglegende" ng-if="currentScheme.id==0">
                 </p>
             </div>
@@ -153,16 +152,24 @@
                     </div>
                 </span>
                 <div class="upper-border">
+                    
+                    <p class="center" id="maploader">
+                        <button onclick="onMapReady()" id="maploaderx" class="btn btn-success">Load Maps</button>
+                    </p>
                     <p class="font20 center bottomless">
                         Six Month Nationwide Rainfall Outlook 
                     </p>
                 </div>
-                <div class="map"> <div class="map-holder"></div> </div>
-                <div class="map"> <div class="map-holder"></div> </div>
-                <div class="map"> <div class="map-holder"></div> </div>
-                <div class="map"> <div class="map-holder"></div> </div>
-                <div class="map"> <div class="map-holder"></div> </div>
-                <div class="map"> <div class="map-holder"></div> </div>
+                <div id="allmaps">
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div class="map"> <div class="map-holder"></div> </div>
+                    <div><br></div>
+                </div>
+
             </div>
         </div>  
 
@@ -198,7 +205,6 @@
                                 <td class="tabledata" ng-repeat="element in each.array" style="background-color: {{element.color}}; color: {{element.textcolor}};">{{element.value}}</td>
                             </tr>
                         </tbody>
-                        <div id="bottompadder"><br></div>        
                     </table>
                 </div>
                 <div id="bottompadder"><br></div>

@@ -40,11 +40,11 @@ function openPage(string){
         document.getElementById("hometag").style.borderBottom = "0px";
         document.getElementById("tabletag").style.borderBottom = "0px";
         document.getElementById("abouttag").style.borderBottom = "0px";
+        document.getElementById("backarrow").style.display = "none";
 
         if(string =='home'){
             document.getElementById("home").style.display = "block"; 
             currentPage = 'home';
-
             document.getElementById("hometag").style.color = "#28a745";
             document.getElementById("hometag").style.backgroundColor = "white";
             document.getElementById("hometag").style.borderBottom = "3px solid #28a745";
@@ -56,6 +56,8 @@ function openPage(string){
             currentPage = 'data';
 
 
+
+            document.getElementById("backarrow").style.display = "inline-block";
             document.getElementById("tabletag").style.color = "#007bff";
             document.getElementById("tabletag").style.backgroundColor = "white";
             document.getElementById("tabletag").style.borderBottom = "3px solid #007bff";
@@ -66,6 +68,8 @@ function openPage(string){
             document.getElementById("settings").style.display = "block";
             currentPage = 'settings';
         }else if(string == 'footer'){
+
+            document.getElementById("backarrow").style.display = "inline-block";
             document.getElementById("footer").style.display = "block";
             document.getElementById("main").style.backgroundColor = "#444440";
             document.getElementById("main").style.color = "white";
@@ -103,14 +107,26 @@ function changeM(){
 }
 
 function onDeviceReady(){
-    document.getElementById('notices').innerHTML = "Loading... Please Wait. This might take a bit."
     d3.csv("data/Forecast.csv", parseData);
-    d3.json("data/Provinces.json", drawMaps);
     document.getElementById('main').style.display = 'block';
     document.getElementById('page-header').style.display = 'block';
-    document.getElementById('footer').style.display = 'block';
+    openPage('home');   
+
+    document.addEventListener("deviceready", ONDReady, false);
+}
+
+function ONDReady(){
+    document.addEventListener("backbutton", onBackKeyDown, false);
+    console.log("ONDREADY")
+}
+
+function onBackKeyDown(){
     openPage('home');
-    
+}
+
+function onMapReady(){
+    d3.json("data/Provinces.json", drawMaps);
+    document.getElementById('maploaderx').innerHTML= "Loading... Please Wait.";
 }
 
 
