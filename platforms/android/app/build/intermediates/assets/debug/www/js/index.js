@@ -58,9 +58,9 @@ function openPage(string){
 
 
             document.getElementById("backarrow").style.display = "inline-block";
-            document.getElementById("tabletag").style.color = "#007bff";
+            document.getElementById("tabletag").style.color = "#28a745";
             document.getElementById("tabletag").style.backgroundColor = "white";
-            document.getElementById("tabletag").style.borderBottom = "3px solid #007bff";
+            document.getElementById("tabletag").style.borderBottom = "3px solid #28a745";
         }else if(string =='downloads'){
             document.getElementById("downloads").style.display = "block";
             currentPage = 'downloads';
