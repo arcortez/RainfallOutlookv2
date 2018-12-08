@@ -1,4 +1,10 @@
-/** IMPORTED CLASSES **/
+
+
+
+
+
+
+/********************************************************************************* IMPORTED CSS **/
 /* Material Icons*/
 @font-face {
   font-family: 'Material Icons';
@@ -11,7 +17,6 @@
     url('fonts/MaterialIcons-Regular.woff') format('woff'),
     url('fonts/MaterialIcons-Regular.ttf') format('truetype');
 }
-
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -31,70 +36,7 @@
   font-feature-settings: 'liga';/* Support for IE. */
 }
 
-/* TOGGLER */
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 42px;
-  height: 26px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #28a745;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #28a745;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(18px);
-  -ms-transform: translateX(18px);
-  transform: translateX(18px);
-}
-
-.slider.round {
-  border-radius: 18px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-/*preloader*/
+/*Preloader, from W3Schools*/
 .loader {
   border: 8px solid #ccc;
   border-radius: 50%;
@@ -112,99 +54,171 @@ input:checked + .slider:before {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+/********************************************************************************* END IMPORTED CSS **/
+
+
   
-/* UTILITY CSS */
-.large-1{font-size: 20px; !IMPORTANT}
-.large-2{font-size: 32px; !IMPORTANT}
-.font4{font-size: 4px; !IMPORTANT}
-.font6{font-size: 6px; !IMPORTANT}
-.font8{font-size: 8px; !IMPORTANT}
-.font10{font-size: 10px; !IMPORTANT}
-.font11{font-size: 11px; !IMPORTANT}
-.font12{font-size: 12px; !IMPORTANT}
-.font14{font-size: 14px; !IMPORTANT}
-.font16{font-size: 16px; !IMPORTANT}
-.font18{font-size: 18px; !IMPORTANT}
-.font20{font-size: 20px; !IMPORTANT}
-.font22{font-size: 22px; !IMPORTANT}
-.font24{font-size: 24px; !IMPORTANT}
-.font26{font-size: 26px; !IMPORTANT}
-.font28{font-size: 28px; !IMPORTANT}
-.font30{font-size: 30px; !IMPORTANT}
 
-.center{text-align: center;}
-.left{float:left;}
-.right{float: right;}
-.bottomless{margin-bottom: 0px;}
 
-.sienna{background-color: sienna;}
-.pink{background-color: pink;}
 
-.white-text{color:white;}
-.red-text{color: red;}
-.light-grey-text{
-  color: #d1d1d1;
+
+
+
+
+/********************************************************************************* UTILITY CSS **/
+.font4 { font-size: 4px; !IMPORTANT }
+.font6 { font-size: 6px; !IMPORTANT }
+.font8 { font-size: 8px; !IMPORTANT }
+.font10 { font-size: 10px; !IMPORTANT }
+.font11 { font-size: 11px; !IMPORTANT }
+.font12 { font-size: 12px; !IMPORTANT }
+.font14 { font-size: 14px; !IMPORTANT }
+.font16 { font-size: 16px; !IMPORTANT }
+.font18 { font-size: 18px; !IMPORTANT }
+.font20 { font-size: 20px; !IMPORTANT }
+.font22 { font-size: 22px; !IMPORTANT }
+.font24 { font-size: 24px; !IMPORTANT }
+.font26 { font-size: 26px; !IMPORTANT }
+.font28 { font-size: 28px; !IMPORTANT }
+.font30 { font-size: 30px; !IMPORTANT }
+
+.left { float:left; }
+.right { float: right; }
+.center { text-align: center; }
+.bottomless { margin-bottom: 0px; }
+
+.red { background-color: red; }
+.pink { background-color: pink; }
+.blue { background-color: #039be5; }
+.link { background-color: rgb(0,176,240); }
+.white { background-color:white; }
+.sienna { background-color: sienna; }
+.light-grey { background-color: #d1d1d1; }
+
+.red-text { color: red; }
+.blue-text { color: #039be5; }
+.link-text { color: rgb(0,176,240); }
+.white-text { color:white; }
+.light-grey-text { color: #d1d1d1; }
+
+
+/*************** SPECIAL UTILITY ***************/
+
+/*for material icon centering */
+.mtop {  
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-left: 10px;
 }
-.blue-text{color: #;}
 
-.link-text{color: rgb(0,176,240);}
-.iconics{
+.thickpads {
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: justify;
+}
+
+/* loading text inside two spinners */
+.loading {
+  text-align: center;
+  color: #28a745;
+  transition: .5s;
+  margin-left: 8px;
+}
+
+.bottomicon {
+  margin-left:  20px;
+  margin-right: 5px;
+}
+
+.indent {
+  margin-left: 20px;
+}
+/********************************************************************************* END UTILITY CSS **/
+
+
+
+
+
+
+
+
+
+
+/********************************************************************************* IMAGE CSS **/
+.iconics {
   height: 10vw; 
   max-height: 25px;
   display:inline-block;
 }
-#headlogo{display:inline-block;}
 
-@media only screen and (max-width: 340px){
-  .none-on-small{display: none;}
-  .disp-on-small{display: inline-block;}
-  .pad-small{
-    padding: 3px;
-  }
+#headlogo {
+  display:inline-block;
 }
 
-@media only screen and (min-width: 340px){
-  .none-on-big{display: none;}
-  .disp-on-big{display: inline-block;}
-
-  .pad-big{
-    padding: 2vw;
-  }
+.big-pic {
+  height: 50px;
 }
 
-body{
+.legend {
+  width: 90vw;
+  max-width: 400px;
+}
+/******************************************************************************** END IMAGE CSS **/
+
+
+
+
+
+
+
+
+
+
+/******************************************************************************** OVERALL + HEADER LAYOUT **/
+body {
   transition: .5s;
   overflow-y: hidden;
   overflow-x: hidden;
 }
 
-.titlebar{
-  background-color: ;
-  width: 100vw;
-  color: white;
-  padding: 8px;
-  text-align: left;
-  margin: 0px;
-  height: 50px;
-}
-
-.menutoggler{
-  color: black;
-  font-size: 35px; 
-  display: none;
-  top: 4px;
-  right: 5px;
-  position: absolute;
-}
-#menuClose{
-  display: none;
-}
-#menuOpen{
+#page-header {
+  border-bottom: 1px solid #d1d1d1;
+  border-top: 1px solid #d1d1d1;
   display: block;
 }
 
-/***** SIDE NAV *****/
-.sidenav {
+@media only screen and (max-width: 340px) {
+  .none-on-small { display: none; }
+  .disp-on-small { display: inline-block; }
+  .pad-small {
+    padding: 3px;
+  }
+}
+
+@media only screen and (min-width: 340px) {
+  .none-on-big{
+    display: none;
+  }
+  .disp-on-big{
+    display: inline-block;
+  }
+  .pad-big{
+    padding: 2vw;
+  }
+}
+/******************************************************************************** END OVERALL + HEADER LAYOUT **/
+
+
+
+
+
+
+
+
+
+
+/******************************************************************************** BOTTOM NAV **/
+.bottomnav {
     color: white;
     background-color: #444440;
     display: block;
@@ -217,149 +231,156 @@ body{
     top: 93%;
 }
 
-@media only screen and (max-width: 405px){
-    .navtag1{
+@media only screen and (max-width: 405px) {
+    .navtag1 {
       position: absolute;
       top: 60%;
       left: 40%;
     }
 
-    .navtag2{
+    .navtag2 {
       position: absolute;
       top: 60%;
       left: 40%;
     }
 
-    .navtag3{
+    .navtag3 {
       position: absolute;
       top: 60%;
       left: 40%;
     }
 }
 
-
-@media only screen and (min-width: 404px){
-    .navtag1{
+@media only screen and (min-width: 404px) {
+    .navtag1 {
       position: absolute;
       top: 60%;
       left: 43%;
     }
 
-    .navtag2{
+    .navtag2 {
       position: absolute;
       top: 60%;
       left: 43%;
     }
 
-    .navtag3{
+    .navtag3 {
       position: absolute;
       top: 60%;
       left: 43%;
     }
 }
-
-ul{
-  list-style: none;
-  padding-left: 0;
-}
-
-.shutterclose{
-  margin-top:10px
-  color: black;
-  background-color: #f9f9f9;
-  border-top: .5px solid #d1d1d1;
-  border-bottom: .5px solid #d1d1d1;
-  
-  -webkit-box-shadow: 0 8px 6px -6px grey;
-     -moz-box-shadow: 0 8px 6px -6px grey;
-          box-shadow: 0 8px 6px -6px grey;
-}
-
-.mtop{
-  margin-top: 5px;
-  margin-right: 8px;
-  margin-left: 10px;
-}
-
-.navitem{
+.navitem {
   padding: 2px;
   margin-bottom: 2px;
-
   color: #cfcfcf;
 }
+/******************************************************************************** END OF BOTTOM NAV **/
 
-.sizing{
-  height: 40px;
-  margin-top: 15px;
-}
 
-.thickpads{
-  padding-left: 40px;
-  padding-right: 40px;
-  text-align: justify;
-}
 
-#agritips{
-  display: none;
-}
 
-#tiptag{
-  display: block;
-}
 
-/**** pages ****/
 
-#main{
+
+
+
+
+/******************************************************************************** PAGE LAYOUTING **/
+#main {
   overflow-y: auto;
-  overflow-x:hidden;
+  overflow-x: hidden;
   max-height: 100%;
   max-width: 100%;
-}/**holds all pages**/
+} /*this holds all pages*/
 
-#page-header{
-  border-bottom: 1px solid #d1d1d1;
-  border-top: 1px solid #d1d1d1;
-  display: block;
-}
-
-.page-content{
-  z-index:5;
+.page-content {
   height: 88vh;
   transition: 0.5s; 
 }
 
-#home{
+#home {
   display: block;
   overflow-y: auto;
 }
 
-#maps{
-  background-position: top;
-  background-repeat: no-repeat;
-  float: left;
-}
-
-#data{
+#data {
   display: none;
   padding-bottom: 10px;
 }
 
-#downloads{
+#footer {
+  display: none;
+} 
+
+#backarrow {
   display: none;
 }
 
-#settings{
+#agritips {
   display: none;
 }
-#scheme{
-  display: none;
-  margin: 2vh;
+
+#tiptag {
+  display: block;
 }
 
 
-/**** MAPS ****/
+#legendarea {
+  text-align: center;
+  background-color: #fdfdfd;
+}
 
-#allmaps{
+/** HOME DISPLAY **/
+.display-header {
+  padding: 3px;
+}
+
+.colorbox {
+  height: 15px;
+  width: 15px;
+  min-width: 15px;
+  min-height: 15px;
+  margin: 3px;
+}
+
+@media only screen and (max-width: 620px) {
+  .displayer {
+    display: block;
+    width: 40vw;
+    margin: 3px;
+    padding: 3px;
+    border-radius: 3px;
+  }
+
+  .mainpad {
+    padding-top: 3vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-bottom: 7%;
+    display: block;
+  }
+
+}
+
+@media only screen and (min-width: 620px) {
+  .displayer {
+    display: block;
+    width: 40vw;
+    margin: 3px;
+    padding: 3px;
+    max-width: 25vw;
+    border-radius: 3px;
+  }
+
+  .mainpad {
+    padding: 10px;
+  }
+}
+
+
+/** HOME MAPS **/
+#allmaps {
   max-width: 94vw;
   background-position: center;
   background-attachment: fixed;
@@ -367,68 +388,33 @@ ul{
 
 }
 
-#innermap{
-  width: 100vw; 
-  height: 600vh;
-}
-
-.map-holder{
+.map-holder {
   height: 200px;
   width: 30vw;
   max-height: 600px; 
   float: left;
 }
 
-.map{
-  float:left;
-}
-
-
-/** TINY MAPS **/
-
-.tinymaps{
-  float:left;
-  text-align: center;
-}
-
-.tinymap-holder{
-  width: 13vw;
-  height: ;
-  background-color: pink;
-}
-
-.tinymap{
+.map {
   float: left;
-  background-color:sienna;
-  padding: 2px;
 }
-
 
 /** TABLES **/
-#table-local{
-  /*background-color: skyblue;*/
+#table-local {
   display: inline-block;
   max-width: 96vw;
-  overflow-x:scroll;
+  overflow-x: scroll;
   margin: 0vw 2vw 2vw 2vw;
 
   max-height: 81vh;
-  overflow-y:scroll;
+  overflow-y: scroll;
 }
-#yscroller{
-  /*background-color: sienna;*/
-}
-#names{
-  float:left;
-  width: 40vw;
-  max-width: 180px;
-}
-.rowstarter{
+.rowstarter {
     min-width: 150px;
     text-align: right;
     padding-right: 8px;
 }
-.tabledata{
+.tabledata {
   min-width: 120px;
   height: 30px;
   border: 2px solid white;
@@ -438,144 +424,30 @@ ul{
 }
 
 
-
-
-/** DOWNLOADS **/
-
-a.dlinks{
-  text-decoration: underline;
+/*BOTTOM NAV*/
+.bottomtags {
+  height: 103%;
+  margin-bottom: 0px;
 }
-
-#downloadlinks{
-  font-size: 18px;
-  margin-top: 20px;
+#bottompadder {
+  height: 7%;
 }
 
 
-/** MISC **/
-.loading{
-  text-align: center;
-  color: #28a745;
-  transition: .5s;
-  margin-left: 8px;
-}
-
-
-/** HOME DISPLAY **/
-.display-header{
-  padding: 3px;
-}
-
-
-@media only screen and (max-width: 620px){
-  .displayer{
-    display: block;
-    width: 40vw;
-    margin: 3px;
-    padding: 3px;
-    border-radius: 3px;
-  /*  box-shadow: 1px 1px 1px grey;*/
-  }
-
-  .mainpad{
-    padding-top: 3vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    padding-bottom: 7%;
-    display: block;
-  }
-}
-
-@media only screen and (min-width: 620px){
-  .displayer{
-    display: block;
-    width: 40vw;
-    margin: 3px;
-    padding: 3px;
-    max-width: 25vw;
-    border-radius: 3px;
-  /*  box-shadow: 1px 1px 1px grey;*/
-  }
-
-  .mainpad{
-    padding: 10px;
-  }
-}
-
-.displayer{
-  display: block;
-  width: 40vw;
-  margin: 3px;
-  padding: 3px;
-  border-radius: 3px;
-}
-
-.upper-border{
+.upper-border {
   padding-top: 8px;
   margin-top: 8px;
   border-top: .05px solid #d2d2d2;
 }
-.bottom-border{
+.bottom-border {
   padding-bottom: 8px;
   margin-bottom: 8px;
   border-bottom: .05px solid #d2d2d2;
 }
 
-.rightmargin5{
+.rightmargin5 {
   margin-right: 5px;
 }
-.colorbox{
-  height:15px;
-  width: 15px;
-  min-width: 15px;
-  min-height: 15px;
-  margin:3px;
-}
-#legendarea{
-  text-align: center;
-  background-color: #fdfdfd;
-
-}
 
 
 
-#footer{
-  display: none;
-}
-
-.big-pic{
-  height: 50px;
-}
-.siglegende{
-  width: 90vw;
-  max-width: 400px;
-}
-
-.bottomicon{
-  margin-left:  20px;
-  margin-right: 5px;
-}
-.itemized{
-  background-color: green;
-  color: white;
-  border-radius: 5px;
-}
-
-.indent{
-  margin-left: 20px;
-}
-
-
-
-.bottomtags{
-  height: 110%;
-  margin-bottom: 0px;
-}
-#bottompadder{
-  height: 7%;
-}
-
-
-#backarrow{
-  display: none;
-}

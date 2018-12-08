@@ -6,9 +6,7 @@
     <meta http-equiv="content-type" content="text/html" charset="UTF-8"/>
     <title>Rainfall Outlook</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
-
     <script type="text/javascript" src="js/cordova-1.5.0.js"></script>
-
 </head>
 
 <body onload="onDeviceReady()">
@@ -16,42 +14,18 @@
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
-
-    <div id="scheme" class="page-content">
-        <img src="img/dost-pcaarrd-uplb.png" class="iconics">
-        <img src="img/header_green.png" class="iconics">
-        <br>
-        <hr>
-        <br>
-        <h5>Choose a Color Scheme</h5>
-        <select id="cschema" class="btn btn-light indent">
-            <option value="BLUE">Shades of Blue</option>
-            <option value="FOUR">Four Colors</option>
-        </select>
-        <button onclick="selectScheme()" class="btn btn-success">select</button>
-        <p class="font12 indent">*(This can be changed later in "Settings & Updates")</p>
-        <p id="notices"></p>
-            
-        <hr>
-        <p>Four Colors (Red, Yellow, Green, Blue)</p>
-        <img src="img/four.png" class="siglegende">
-        <hr>
-        <p>Shades of Blue</p>
-        <img src="img/blue.png" class="siglegende">
-    </div>
-
     <div id="page-header" class="pad-big pad-small">
         <p class="bottomless">
-            <img id="backarrow" onclick="openPage('home')" src="img/backarrow.png" class="iconics">
+            <a id="backarrow" onclick="openPage('home')"> <i class="material-icons font28 left">keyboard_backspace</i> </a>
             <img src="img/dost-pcaarrd-uplb.png" class="iconics">
             <img src="img/header_green.png" class="iconics">
         </p>
     </div>
 
 
-    <div id="mySidenav" class="sidenav">
+    <div id="myNav" class="bottomnav">
         <div class="container">
-            <div class="row">
+            <div class="row blackspace">
                 <div id="hometag" class="col center bottomtags" onclick="openPage('home')">
                     <p>
                         <i class="material-icons font28 mtop">home</i>
@@ -62,7 +36,7 @@
                     <i class="material-icons font28 mtop">view_quilt</i>
                     <span class="font10 navtag2">Tables</span>
                 </div>
-                <div id="abouttag" class="col center bottomtags" onclick="openPage('footer')">
+                <div id="abouttag" class="col center bottomtags" onclick="openPage('about')">
                     <i class="material-icons font24 mtop">help_outline</i>
                     <span class="font10 navtag3">About</span>
                 </div>
@@ -88,32 +62,18 @@
                         <select name="provinceSelect" id="provinceSelect" class="btn btn-light">
                             <option ng-repeat="each in provincedata" value="{{each.id}}">{{each.province}}</option>
                         </select>
-                        <!-- <a href="#" ng-if="searchP == false" ng-click="searchPtoggle()"><i class="material-icons link">search</i></a>
-                        <div ng-if="searchP">
-                            <a href="#" ng-click="searchPtoggle()"><i class="material-icons link">close</i></a>
-                            <input ng-model="pKey" name="pkey">
-                            results: 
-                            <button class="itemized" ng-repeat="each in provincedata | inListP:pKey" ng-click="searchPtoggle()" onclick="setP()">select {{each.province}}</button>
-                        </div> -->
-                        <br ng-if="searchP == false"><!-- <br ng-if="searchP == false"> -->
-                        
+                        <br>
                         <p class="font14 center bottomless"><strong>MUNICIPALITY</strong></p>
                         <select name="muniSelect" id="muniSelect" class="btn btn-light">
                             <option value="all"> -- All -- </option>
                             <option ng-repeat="each in municipalData.municipalities" value="{{each.id}}">{{each.Municipality}}</option>
                         </select>
-                        <!-- <a href="#" ng-if="searchM == false" ng-click="searchMtoggle()"><i class="material-icons link">search</i></a>
-                        <div ng-if="searchM">
-                            <a href="#" ng-click="searchMtoggle()"><i class="material-icons link">close</i></a>
-                            <input ng-model="mKey">
-                        </div> -->      
                     </div>
                     
                 </form>
             </div>
 
             <div>
-                <!-- <span>{{municipalData.province}}</span> -->
                 <div class="container center sienna">
                     <div class="displayer left" ng-repeat="each in displayarr" style="background-color: {{each.color}}; color: {{each.textcolor}}">
                         <p class="bottomless display-header"><strong>{{months[each.id]}}</strong></p>
@@ -126,7 +86,7 @@
 
             <div id="legendarea" class="bottom-border">
                 <p>
-                    <img src="img/blue.png" class="siglegende" ng-if="currentScheme.id==0">
+                    <img src="img/blue.png" class="legend">
                 </p>
             </div>
             
@@ -145,6 +105,7 @@
                         <p class="bottomless">If rainfall is <strong>more than 100mm</strong>, planting corn is advisable. If rainfall is <strong>more than 200mm</strong>, planting corn and rice is advisable.</p>
                     </div>
                 </span>
+
                 <div class="upper-border">
                     
                     <div class="center" id="maploader">
@@ -179,13 +140,17 @@
             </div>
         </div>  
 
+
+
         <div id="data" class="page-content">
+
             <h4 class="center">Tabulated Data</h4>
-            <hr>
+
             <p id="provinceheader" class="font20 bottomless">
-                <span ng-if="showProvince">PROVINCES</span>
-                <span ng-if="showMunicipality"><button class="btn btn-primary" ng-click="loadProvinceData()">PROVINCES</button> > {{municipalData.province}}</span>
+                <h5 class="bottomless" ng-if="showProvince">PROVINCES</h5>
+                <span ng-if="showMunicipality"><button class="btn blue white-text" ng-click="loadProvinceData()">PROVINCES</button> > {{municipalData.province}}</span>
             </p> 
+
             <div id="table-local">
                 <table> 
                     <tr>
@@ -218,54 +183,10 @@
                 <br>
             </div>
         </div>
-        <div id="downloads" class="page-content">
-            <h4 class="center">Downloads</h4>
-            <hr>
-            <div id="downloadlinks">
-                <h5>Spreadsheet files:</h5>
-                <p class="indent bottomless font16 btn btn-light"><a onclick="navigator.app.loadUrl('https://cdn.fbsbx.com/v/t59.2708-21/46063236_2109976949066903_4216409243189772288_n.csv/Forecast.csv?_nc_cat=108&_nc_ht=cdn.fbsbx.com&oh=6093bf7bb0253219824ddcc5df1e7df6&oe=5BECB731&dl=1&fbclid=IwAR28euuXzuhKoyqV_Pp65WrkRSbhU2y-C3IBOjQ0TEcS4KRfKlB4ZGW4W7k', { openExternal:true });" href="#">Forecast.csv</a></p>
-                <p class="indent bottomless font16 btn btn-light"><a onclick="navigator.app.loadUrl('https://cdn.fbsbx.com/v/t59.2708-21/45434926_291221531600985_4883347437248315392_n.xlsx/Forecast.xlsx?_nc_cat=102&_nc_ht=cdn.fbsbx.com&oh=0d543d90429c9b7fcbfb8c812d0f62d5&oe=5BECF29D&dl=1&fbclid=IwAR3J3vc2QwSWebae8GlQO_0Xns-B7UvyuevW_gXLqcMMACJu9G4dTpBvBQk', { openExternal:true });" href="#">Forecast.xlsx</a></p>
-                <p class="font14 internet"> * requires internet to download up to date files</p>
-                <!-- 
-                    Link temporarily for sarai website. 
-                    Server is localhost:3000 in testing, internet is needed for download but info is in app. 
-                -->
 
-                <!--
-                <p>Image Download:</p>
-                <p ng-repeat="x in months"><button class="btn btn-success">{{x}}</button></p> 
-                -->
-            </div>
-        </div>
-        <div id="settings" class="page-content">
-            <h4 class="center">Settings & Updates</h4>
-            <hr>
-            <form>
-                <p class="font18">Change Color Scheme</p>
-                <div class="indent">
-                    <select id="re_schema" class="btn btn-light">
-                        <option value="BLUE">Shades of Blue</option>
-                        <option value="FOUR">Four Colors</option>
-                    </select>
-                    <button onclick="recolor()" class="btn btn-success">select</button>
-                </div>
-                <p class="font14 indent">* map colors may not change until app is restarted.</p>
-                <p class="font14 indent red-text" id='schemenote'></p>
-            </form>
-            <hr>
-            <span>Allow auto-updates</span> 
-            <span class="right">
-                <label class="switch">
-                  <input type="checkbox" checked>
-                  <span class="slider round"></span>
-                </label>
-            </span>
-            
-            <hr>
 
-        </div>
 
-        <div id="footer" class="page-content">
+        <div id="about" class="page-content">
             <br>
             <div class="thickpads">
                 <h4>Connect With Us</h4>
@@ -289,7 +210,7 @@
     </div>
 
 
-    <!--must be at the end or else nothing will work-->
+    <!--must be at the end or else a lot of things won't work-->
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/angular.min.js"></script>
@@ -298,4 +219,5 @@
     <script type="text/javascript" src="js/controller.js"></script>
 
 </body>
+
 </html>

@@ -1,40 +1,20 @@
   
 $(window).resize(function() {
- 
   svg
     .attr("width", $(".map-holder").width())
     .attr("height", $(".map-holder").height())
-  ;
-  
+  ;  
 }); //for debugging/testing
 
-function getColorVal(num, color_schema){
-	if(color_schema == "FOUR"){
-		if(num < 100) return "rgb(255,0,0)";
-		else if(num >= 100 && num <250) return "rgb(255,255,0)";
-		else if(num >=250 && num <=500) return "rgb(0,176,40)";
-		else if(num > 500) return "rgb(68,114,198)";
-		else console.log('invalid input >> '+num);
-	}else if(color_schema == "BLUE"){
-		if(num < 100) return "#eceff1";
-		else if(num >= 100 && num <250) return "#b3e5fc";
-		else if(num >=250 && num <=500) return "#039be5";
-		else if(num > 500) return "#01579b";
-		else console.log('invalid input >> '+num);
-
-		// //6 shades of blue 
-		// if(num < 50) return "rgb(225,225,225)";
-		// else if(num >= 50 && num < 100) return "rgb(185,231,253)";
-		// else if(num >= 100 && num < 200) return "rgb(16,183, 252)";
-		// else if(num >= 200 && num < 300) return "rgb(10,109,254)";
-		// else if(num >= 300 && num < 400) return "rgb(5,76,156)";
-		// else if(num >= 400 && num <= 500) return "rgb(0,38,118)";
-		// else return "rgb(0,10,10)";
-		 
-	}
+function getColorVal(num){
+	if(num < 100) return "#eceff1";
+	else if(num >= 100 && num <250) return "#b3e5fc";
+	else if(num >=250 && num <=500) return "#039be5";
+	else if(num > 500) return "#01579b";
+	else console.log('invalid input >> '+num);
 }
 
-function getTextColor(num, color_schema){
+function getTextColor(num){
 	if(num < 250) return "black";
 	else return "white"
 }
@@ -75,57 +55,6 @@ function parseProv(data){
 
 }
 
-var colorschemes = [
-	{
-		id: 0,
-		schemename: 'BLUE', 
-		schemedesc: "Shades of Blue",
-		array:[
-			{
-				color: "rgb(225,225,225)",
-				desc: "< 100mm",
-				// lower_range: 0,
-				// upper_range: 100
-			},
-			{
-				color: "rgb(116,220,253)",
-				desc: "100-250mm"
-			},
-			{
-				color: "rgb(9,87,235)",
-				desc: "250-500mm"
-			},
-			{
-				color: "rgb(30,59,180)",
-				desc: "> 500mm"
-			}
-		] 
-	},
-	{
-		id: 1,
-		schemename: 'FOUR', 
-		schemedesc: "Four Colors (Red, Yellow, Green, Blue)",
-		array:[
-			{
-				color: "rgb(255,0,0)",
-				desc: "< 100mm"
-			},
-			{
-				color: "rgb(255,255,0)",
-				desc: "100-250mm"
-			},
-			{
-				color: "rgb(0,176,40)",
-				desc: "250-500mm"
-			},
-			{
-				color: "rgb(68,114,198)",
-				desc: "> 500mm"
-			}
-		] 
-	}
-];
-
 var allMunicipalities = [];
 var monthspan = [];
 var colorarr;
@@ -133,15 +62,6 @@ var scheme;
 
 function parseData(data){
 	// console.log(data)
-
-    scheme = document.getElementById('cschema').value; // <input> in div#schema
-    // console.log(scheme);
-
-    if(scheme == 'FOUR'){ //taking from predefined colorarr
-    	colorarr = colorschemes[1];
-    }else if(scheme == 'BLUE'){
-    	colorarr = colorschemes[0];
-    }
 
 	monthspan = data.columns; // will be used late in controller.js
 	monthspan.shift(); // removes first column header of csv file, uneeded
@@ -189,8 +109,8 @@ function parseData(data){
 				arrayofvalues.push({
 					id: i-1,
 					value: val,
-					color: getColorVal(val, scheme),
-					textcolor: getTextColor(val, scheme)
+					color: getColorVal(val),
+					textcolor: getTextColor(val)
 				});
 			}
 
@@ -219,8 +139,8 @@ function parseData(data){
 				arr.push({
 					id: i-1,
 					value: temp,
-					color: getColorVal(temp, scheme),
-					textcolor: getTextColor(temp, scheme)					
+					color: getColorVal(temp),
+					textcolor: getTextColor(temp)					
 				});
 			}
 			var obj = {
@@ -288,17 +208,6 @@ function drawMaps (geojson){
 			}
 			return colorstring;
 		});
-		// .attr("id", function(d){
-		// 	if(d.properties.ID_1 == 82){
-		// 		t++;
-		// 	}
-		// 	// console.log("PH"+t+"-"+d.properties.ID_1);
-		// 	return "PH"+t+"-"+d.properties.ID_1			
-		// })
-		// .on("click", function(d){
-		// 	console.log(d.properties.ID_1+" "+d.properties.NAME_1)
-
-		// });
 	
 	
 	var loaded = angular.element(document.getElementById("fullscale")).scope();
