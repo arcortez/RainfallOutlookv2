@@ -215,3 +215,7 @@ function drawMaps (geojson){
         loaded.changeLBAR(false);
     })
 }
+
+d3.csv("data/agritip.txt", function(data) {
+	document.getElementById("agritipcontent").innerHTML = data.columns[0]
+});

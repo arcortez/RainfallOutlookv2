@@ -1,0 +1,1 @@
+"If rainfall is <strong>more than 100mm</strong>, planting corn is advisable. If rainfall is <strong>more than 200mm</strong>, planting corn and rice is advisable."
