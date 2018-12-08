@@ -9,7 +9,7 @@
     </author>
     <content src="index.html" />
     <preference name="orientation" value="portrait" />
-    <preference name="fullscreen" value="true" />
+    <preference name="fullscreen" value="false" />
     <preference name="pgb-builder-version" value="1" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />

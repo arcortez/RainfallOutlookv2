@@ -182,7 +182,7 @@ function recolor(){
             }
         }
 
-        console.log(allMunicipalities);
+        // console.log(allMunicipalities);
 
         document.getElementById('maps').innerHTML ="<div class='upper-border'><p class='font20 center bottomless'>Six Month Nationwide Rainfall Outlook</p></div><div class='map'> <div class='map-holder'></div> </div><div class='map'> <div class='map-holder'></div> </div><div class='map'> <div class='map-holder'></div> </div><div class='map'> <div class='map-holder'></div> </div><div class='map'> <div class='map-holder'></div> </div><div class='map'> <div class='map-holder'></div> </div>";
         

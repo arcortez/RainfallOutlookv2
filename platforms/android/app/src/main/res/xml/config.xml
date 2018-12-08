@@ -39,6 +39,6 @@
     <icon density="xxxhdpi" src="icon.png" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="orientation" value="portrait" />
-    <preference name="fullscreen" value="true" />
+    <preference name="fullscreen" value="false" />
     <preference name="pgb-builder-version" value="1" />
 </widget>

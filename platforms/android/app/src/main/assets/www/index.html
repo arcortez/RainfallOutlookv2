@@ -147,9 +147,10 @@
                 </span>
                 <div class="upper-border">
                     
-                    <p class="center" id="maploader">
-                        <button onclick="onMapReady()" id="maploaderx" class="btn btn-success">Load Maps</button>
-                    </p>
+                    <div class="center" id="maploader">
+                        <p> <button onclick="onMapReady()" id="maploaderx" class="btn btn-success">Load Maps</button> </p>
+                        <p class="font11 skyblue"> *this will take around a minute to load</p>
+                    </div>
                     <div class="center font20" ng-if="loadingbar">
                         <span class="loading">{{notif}}</span>
                         <div class="loader left"></div>
@@ -173,6 +174,7 @@
                     <br>
                     <br>
                     <p  class="light-grey-text"><i class="material-icons mtop">copyright</i> Copyright 2018 - Project SARAi</p>
+                    <br>
                 </div>
             </div>
         </div>  
@@ -182,7 +184,7 @@
             <hr>
             <p id="provinceheader" class="font20 bottomless">
                 <span ng-if="showProvince">PROVINCES</span>
-                <span ng-if="showMunicipality"><button class="btn btn-light" ng-click="loadProvinceData()"><i class="material-icons">back</i> PROVINCES</button> > {{municipalData.province}}</span>
+                <span ng-if="showMunicipality"><button class="btn btn-primary" ng-click="loadProvinceData()">PROVINCES</button> > {{municipalData.province}}</span>
             </p> 
             <div id="table-local">
                 <table> 

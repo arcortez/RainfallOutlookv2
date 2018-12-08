@@ -145,6 +145,7 @@ input:checked + .slider:before {
 .light-grey-text{
   color: #d1d1d1;
 }
+.blue-text{color: #;}
 
 .link-text{color: rgb(0,176,240);}
 .iconics{
@@ -567,7 +568,7 @@ a.dlinks{
 
 
 .bottomtags{
-  height: %;
+  height: 110%;
   margin-bottom: 0px;
 }
 #bottompadder{

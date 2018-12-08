@@ -27,12 +27,12 @@ app.controller('Controller', ['$scope', function($scope) {
 		$scope.showMunicipality = false;
 		$scope.provincedata = allMunicipalities;
 		$scope.months = monthspan;
-		console.log($scope.provincedata);
-		console.log($scope.months);
+		// console.log($scope.provincedata);
+		// console.log($scope.months);
 		$scope.municipalData = $scope.provincedata[0];
 		$scope.notif = "";
 		$scope.currentScheme = colorarr;
-		console.log($scope.currentScheme);
+		// console.log($scope.currentScheme);
 
 		var arr = $scope.municipalData.array;
 		var newarr = [];
@@ -45,7 +45,7 @@ app.controller('Controller', ['$scope', function($scope) {
 			};
 			newarr.push(obj);
 		}
-		console.log(newarr);
+		// console.log(newarr);
 		$scope.displayarr = newarr;
 		$scope.loadingbar = false;
 
@@ -68,12 +68,12 @@ app.controller('Controller', ['$scope', function($scope) {
 		$scope.showMunicipality = false;
 		$scope.provincedata = allMunicipalities;
 		$scope.months = monthspan;
-		console.log($scope.provincedata);
-		console.log($scope.months);
+		// console.log($scope.provincedata);
+		// console.log($scope.months);
 		$scope.municipalData = $scope.provincedata[39];
 		$scope.notif = "";
 		$scope.currentScheme = colorarr;
-		console.log($scope.currentScheme);
+		// console.log($scope.currentScheme);
 
 		var arr = $scope.municipalData.array;
 		var newarr = [];
@@ -86,7 +86,7 @@ app.controller('Controller', ['$scope', function($scope) {
 			};
 			newarr.push(obj);
 		}
-		console.log(newarr);
+		// console.log(newarr);
 		$scope.displayarr = newarr;
 		$scope.loadingbar = false;
 
@@ -97,7 +97,7 @@ app.controller('Controller', ['$scope', function($scope) {
 	}
 
 	$scope.onChangedProvince = function(){
-		console.log($scope.currentProvince);	
+		// console.log($scope.currentProvince);	
 		$scope.municipalData = $scope.provincedata[parseInt($scope.currentProvince.id)]
 		$scope.muniArr = $scope.municipalData.municipalities;
 	}
@@ -106,7 +106,7 @@ app.controller('Controller', ['$scope', function($scope) {
 		$scope.showMunicipality = true;
 		$scope.showProvince = false;
 		$scope.municipalData = $scope.provincedata[parseInt(string)];
-		console.log($scope.municipalData)
+		// console.log($scope.municipalData)
 
 		var arr = $scope.municipalData.array;
 		var newarr = [];
@@ -119,14 +119,14 @@ app.controller('Controller', ['$scope', function($scope) {
 			};
 			newarr.push(obj);
 		}
-		console.log(newarr);
+		// console.log(newarr);
 		$scope.displayarr = newarr;
 	}
 
 	$scope.changeDisplayArr = function(val){
 		
 		if(val == "all"){
-			console.log("shall i compare thee to a winter's day")
+			// console.log("shall i compare thee to a winter's day")
 			var arr = $scope.municipalData.array;
 			var newarr = [];
 			for(let each of arr){
@@ -138,11 +138,11 @@ app.controller('Controller', ['$scope', function($scope) {
 				};
 				newarr.push(obj);
 			}
-			console.log(newarr);
+			// console.log(newarr);
 			$scope.displayarr = newarr;
 		}else{
 			var muns = $scope.municipalData.municipalities;
-			console.log(muns);
+			// console.log(muns);
 			var arr = muns[parseInt(val)].array;
 			var newarr = [];
 			for(let each of arr){
@@ -154,7 +154,7 @@ app.controller('Controller', ['$scope', function($scope) {
 				};
 				newarr.push(obj);
 			}
-			console.log(newarr);
+			// console.log(newarr);
 			$scope.displayarr = newarr;
 		}
 	}

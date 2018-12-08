@@ -47,19 +47,19 @@ var svg = d3.selectAll(".map-holder")
 var width = $(".map-holder").width();
 var height = $(".map-holder").height();
 
-var scale_value = 700;
-
-var projection = d3
-	.geoEquirectangular()
-	.center([155, 1]) //the lat-long degrees of the philippines
-	.scale(scale_value);
-
-// var scale_value = 500;
+// var scale_value = 700;
 
 // var projection = d3
 // 	.geoEquirectangular()
-// 	.center([170, -4]) //the lat-long degrees of the philippines
+// 	.center([155, 1]) //the lat-long degrees of the philippines
 // 	.scale(scale_value);
+
+var scale_value = 500;
+
+var projection = d3
+	.geoEquirectangular()
+	.center([170, -4]) //the lat-long degrees of the philippines
+	.scale(scale_value);
 
 var path = d3
   .geoPath()
@@ -145,7 +145,7 @@ function parseData(data){
 
 	monthspan = data.columns; // will be used late in controller.js
 	monthspan.shift(); // removes first column header of csv file, uneeded
-	console.log(monthspan);
+	// console.log(monthspan);
 
 	data.push({Municipality:"end"}); // to mark end of iteration in parsing
 
@@ -246,7 +246,7 @@ function parseData(data){
 
 //d3js
 function drawMaps (geojson){
-	console.log('mapping')
+	// console.log('mapping')
 	var t = 0;
 	var m = 0;
 	var p = 0;
@@ -270,7 +270,7 @@ function drawMaps (geojson){
 		.text(function(d){
 			var string = monthspan[p].toUpperCase();
 			p++;
-			console.log(string);
+			// console.log(string);
 			return string;
 		});
 
