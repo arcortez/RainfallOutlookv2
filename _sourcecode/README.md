@@ -1,18 +1,3 @@
--------------------------------------
-
-.---. .---. . .   . .---. .---. .     .          .---. .   . _____ .     .---. .---. .  .
-|   | |   | | |\  | |     |   | |     |          |   | |   |   |   |     |   | |   | | /
-|---` |---| | | \ | |---  |---| |     |          |   | |   |   |   |     |   | |   | |/\
-|  \  |   | | |  \| |     |   | |     |          |   | |   |   |   |     |   | |   | |  \
-`   ` `   ` ` `   ` `     `   ` `---- `----      `---` `---`   `   `---- `---` `---` `   `
-
--------------------------------------
-Author: Adrienne Elise R Cortez, Batch 2014 BS Computer Science
-Date Created: December 8, 2018
-Description: This application is the solution to easy offline access of the rainfall in each region of the Philippines. It uses 
-	PhoneGap which is a Web-View Application that allows users to use familiar code like HTML, JavaScript/PHP, and CSS in order
-	to create a mobile application. 
-
 #Easy-Update Tutorial. (For new data)
 
 1. go to the Directory:
